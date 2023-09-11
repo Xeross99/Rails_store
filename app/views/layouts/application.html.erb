@@ -12,9 +12,13 @@
   </head>
 
   <body>
-    <header class="bg-green-700">
+    <header class="bg-green-700 flex justify-between items-center">
       <%= image_tag 'logo.svg', alt:  'The Pragmatic Bookshelf' %>
       <h1><%= @page_title %></h1>
+      <div class="text-white text-2xl m-4">
+        <%= Time.now.strftime("%H:%M:%S") %>
+      </div>
+      
     </header>
 
     <section class="flex">
