@@ -57,7 +57,7 @@ class ProductTest < ActiveSupport::TestCase
   # TEST FICTURES
   test "product is not valid without a unique title" do
     product = Product.new(
-      title:       products(:testFictures).title,
+      title:       products(:ruby).title,
       description: "yyy", 
       price:       1, 
       image_url:   "fred.gif")
@@ -68,7 +68,7 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product is not valid without a unique title - i18n" do
     product = Product.new(
-      title:       products(:testFictures).title,
+      title:       products(:ruby).title,
       description: "yyy", 
       price:       1, 
       image_url:   "fred.gif")
