@@ -60,7 +60,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to product_url, notice: "#{@line_item.product.title} was successfully deleted." }
+      format.html { redirect_to product_url, notice: "#{@line_item.quantity} × #{@line_item.product.title} was successfully deleted." }
       format.json { head :no_content }
     end
   end
