@@ -57,11 +57,14 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
-    @line_item.quantity > 1 ? @line_item.decrement(:quantity) : @line_item.destroy
+    @line_item.quantity > 1 ? @line_item.decrement!(:quantity) : @line_item.destroy
 
     respond_to do |format|
-      @line_item.save
-      format.json { head :no_content }
+      if @line_item.save
+        format.turbo_stream { redirect_to store_index_url }
+      else
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -75,5 +78,4 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:product_id)
     end
-  #...
 end
