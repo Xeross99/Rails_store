@@ -7,10 +7,10 @@ one:
   price: 9.99
 
 two:
-  title: MyString
+  title: MySecondString
   description: MyText
   image_url: lorem.jpg
-  price: 9.99
+  price: 19.99
 
 ruby:
   title: Programming Ruby 1.9

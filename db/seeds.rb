@@ -1,12 +1,3 @@
-#---
-# Excerpted from "Agile Web Development with Rails 7",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit https://pragprog.com/titles/rails7 for more book information.
-#---
-# encoding: utf-8
 Product.delete_all
 Product.create!(title: 'Docker for Rails Developers',
   description:
@@ -23,7 +14,7 @@ Product.create!(title: 'Docker for Rails Developers',
       </p>},
   image_url: 'ridocker.jpg',
   price: 19.95)
-# . . .
+
 Product.create!(title: 'Design and Build Great Web APIs',
   description:
     %{<p>
@@ -40,7 +31,6 @@ Product.create!(title: 'Design and Build Great Web APIs',
       </p>},
   image_url: 'maapis.jpg',
   price: 24.95)
-# . . .
 
 Product.create!(title: 'Modern CSS with Tailwind',
   description:
