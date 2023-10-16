@@ -8,8 +8,8 @@ Rails.application.configure do
     port: 587,
     domain: "domain.of.sender.net",
     authentication: "plain",
-    user_name: "dave",
-    password: "secret",
+    user_name: "testrubyonrails99",
+    password: "rubyonrails",
     enable_starttls_auto: true
   }
   # Settings specified here will take precedence over those in config/application.rb.

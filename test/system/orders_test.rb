@@ -63,7 +63,8 @@ class OrdersTest < ApplicationSystemTestCase
     assert_text 'Thank you for your order'
 
     perform_enqueued_jobs
-    assert_performed_jobs 1
+    perform_enqueued_jobs
+    assert_performed_jobs 2
 
     orders = Order.all
     assert_equal 1, orders.size
