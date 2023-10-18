@@ -5,6 +5,12 @@
     </p>
   <% end %>
 
+  <% if alert.present? %>
+    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert">
+    <%= alert %>
+    </p>
+  <% end %>
+
   <%= form_tag do %>
     <h2 class="font-bold text-3xl">Please Log In</h2>
     

@@ -11,39 +11,40 @@
   </head>
 
   <body>
-    <header class="bg-green-700 flex justify-between items-center sticky top-0 left-0 right-0">
+    <header class="bg-green-700 flex justify-between items-center sticky top-0 left-0 right-0 ">
       <a href="/"><%= image_tag 'logo.svg', alt:  'The Pragmatic Bookshelf' %></a>
 
         <ul class="text-gray-300 leading-8 gap-5 flex flex-row">
-          <li><a href="/" class="hover:text-white hover:underline transition-all duration-200">Home</a></li>
-          <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Questions", questions_path %></li>
-          <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "News", news_path %></li>
-          <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Contact", contact_path %></li>
-          <li><a href="/admin" class="hover:text-white hover:underline transition-all duration-200 <%= session[:user_id] ? "hidden" : "block" %>">Log in</a></li>
-        </ul>
-      
+        <li><a href="/" class="hover:text-white hover:underline transition-all duration-200">Home</a></li>
+        <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Questions", questions_path %></li>
+        <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "News", news_path %></li>
+        <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Contact", contact_path %></li>
+        <li><a href="/admin" class="hover:text-white hover:underline transition-all duration-200 <%= session[:user_id] ? "hidden" : "block" %>">Log in</a></li>
+      </ul>
+
       <time class="text-white text-2xl m-4">
         <%= Time.now.strftime("%H:%M:%S") %>
       </time>
     </header>
 
     <section class="flex">
-      <% if session[:user_id] %>
         <nav class="bg-green-900 p-6 overflow-scroll min-w-[200px]">
-          <%= render partial: 'layouts/cart', locals: { cart: @cart } %>
+          <div class="sticky top-0">
+            <%= render partial: 'layouts/cart', locals: { cart: @cart } %>
 
-          <% if session[:user_id]%>
-            <ul class="text-gray-300 leading-8">
-              <li class="text-bold text-center"><%= User.find(session[:user_id]).name %></li>
-              <li><hr class="my-2"></li>
-              <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Orders", orders_path %></li>
-              <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Products", products_path %></li>
-              <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Users", users_path %></li>
-              <li><%= button_to "Logout", logout_path, method: :delete, class: 'text-red-500 hover:underline transition-all duration-200' %></li>
-            </ul>
-          <% end %>
+            <% if session[:user_id]%>
+              <ul class="text-gray-300 leading-8">
+                <li class="text-bold text-center"><%= User.find(session[:user_id]).name %></li>
+                <li><hr class="my-2"></li>
+                <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Orders", orders_path %></li>
+                <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Products", products_path %></li>
+                <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Users", users_path %></li>
+                <li><%= button_to "Logout", logout_path, method: :delete, class: 'text-red-500 hover:underline transition-all duration-200' %></li>
+              </ul>
+            <% end %>
+          </div>
         </nav>
-      <% end %>
+
 
       <main class="container mx-auto mt-4 px-5 flex">
         <%= yield %>
