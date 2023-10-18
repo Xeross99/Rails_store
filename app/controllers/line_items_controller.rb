@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
+  #Przywołanie CurrentCart z app/models/concerns/current_cart.rb
+include CurrentCart
   before_action :set_cart, only: %i[ create ]
   before_action :set_line_item, only: %i[ show edit update destroy ]
   skip_before_action :authorize, only: %i[ create ]

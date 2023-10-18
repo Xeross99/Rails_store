@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/questions', as: 'questions'
+  get 'static_pages/news', as: 'news'
+  get 'static_pages/contact', as: 'contact'
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login' => :new
