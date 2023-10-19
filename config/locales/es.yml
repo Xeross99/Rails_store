@@ -1,14 +1,16 @@
 es:   
 
+  thanks:               "Gracias por su pedido"
+
   layouts:    
     application:    
       home:            "Inicio"
-      questions:        "Preguntas"
+      questions:       "Preguntas"
       news:            "Noticias"
-      contact:          "Contacto"
+      contact:         "Contacto"
       orders:          "Pedidos"
       products:        "Productos"
-      users:            "Usuario"
+      users:           "Usuario"
       logout:          "Cerrar sesión"
 
   store:    
@@ -19,8 +21,8 @@ es:
 
   carts:    
     cart:   
-      title:             "Carrito de la Compra"
-      empty:             "Vaciar Carrito"
+      title:            "Carrito de la Compra"
+      empty:            "Vaciar Carrito"
       checkout:         "Compar"
   
   number:   

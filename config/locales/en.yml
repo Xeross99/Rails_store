@@ -1,5 +1,7 @@
 en:
 
+  thanks:               "Thank you for your order"
+
   layouts:
     application:
       home:         "Home"

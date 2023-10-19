@@ -19,7 +19,14 @@ Rails.application.routes.draw do
     resources :orders
     resources :line_items
     resources :carts
-    root 'store#index', as: 'store_index'
+    root 'store#index', as: 'store_index', via: :all
   end
-
 end
+
+
+
+# INFO
+
+# RESOURCES -> mozliwe sa wykonanie akcji CRUD - create, read, update, delete
+# SCOPE '(:LOCALE)' DO -> wpisane w niej trasy beda obejmowac parametry :locale do  okreslenia jezyka 
+# VIA: :ALL -> ścieżka jest dostępna dla wszystkich typów żądań HTTP.

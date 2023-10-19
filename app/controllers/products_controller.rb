@@ -75,6 +75,6 @@ class ProductsController < ApplicationController
 
     def invalid_products
       logger.error "ERROR - Attempt to access invalid order #{params[:id]}"
-      redirect_to store_index_url, notice: "Invalid product #{params[:id]}"
+      redirect_to store_index_url, alert: "Invalid product #{params[:id]}"
     end
 end

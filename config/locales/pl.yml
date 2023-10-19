@@ -1,5 +1,7 @@
 pl:
 
+  thanks:               "Dziękujemy za złozenie zamówienia"
+
   layouts:
     application:
       home:         "Główna"
