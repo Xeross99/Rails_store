@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
   #Przywołanie CurrentCart z app/models/concerns/current_cart.rb
   include CurrentCart
   
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_order
+
   before_action :set_cart, only: %i[ new create ]
   before_action :ensure_cart_isnt_empty, only: %i[ new ]
   before_action :set_order, only: %i[ show edit update destroy ]
@@ -94,5 +96,10 @@ class OrdersController < ApplicationController
       else
         {}
       end
+    end
+    
+    def invalid_order
+      logger.error "ERROR - Attempt to access invalid order #{params[:id]}"
+      redirect_to store_index_url, alert: "Invalid order #{params[:id]}"
     end
 end

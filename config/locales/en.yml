@@ -54,3 +54,24 @@ en:
       expiration_date:  "Expiry"
     po:
       po_number:        "PO #"
+
+  activerecord:
+    models:
+      order:            "Order"
+    attributes:
+      order:
+        address:        "Address" 
+        name:           "name"
+        email:          "E-mail"
+        pay_type:       "Pay Type"
+    errors:
+      messages:
+        inclusion: "is not included in the list"
+        blank: "cannot be left blank"
+
+  errors:
+    template:
+      body: "There are issues with the following fields:"
+      header:
+        one: "1 error prevented this %{model} from being saved"
+        other: "%{count} errors prevented this %{model} from being saved"

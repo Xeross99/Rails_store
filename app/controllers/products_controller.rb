@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_products
 
   # GET /products or /products.json
   def index
@@ -70,5 +71,10 @@ class ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
+    end
+
+    def invalid_products
+      logger.error "ERROR - Attempt to access invalid order #{params[:id]}"
+      redirect_to store_index_url, notice: "Invalid product #{params[:id]}"
     end
 end

@@ -34,9 +34,9 @@ pl:
   
   orders:   
     new:    
-      legend:           "Prosze Podaj Swoje Dane"
+      legend:           "Podaj Swoje Dane"
     form:   
-      name:             "imię"
+      name:             "Imię"
       address_html:     "Adres"
       email:            "E-mail"
       pay_type:         "Zapłać"
@@ -51,6 +51,27 @@ pl:
       account_number:   "Numer Konta"
     cc:
       cc_number:        "Numer Karty"
-      expiration_date:  "Data Waności"
+      expiration_date:  "Data Wazności"
     po:
       po_number:        "Numer Zamówienia"
+
+  activerecord:
+    models:
+      order:            "zamówienia"
+    attributes:
+      order:
+        address:        "Adres" 
+        name:           "Imię"
+        email:          "E-mail"
+        pay_type:       "Forma platności"
+    errors:
+      messages:
+        inclusion:      "nie jest zawarta na liscie"
+        blank:          "nie moze pozostać pusty"
+  
+  errors:
+    template:
+      body:             "Istnieją problemy z nastepującymi polami:"
+      header:
+        one:            "1 blad uniemozliwił zapisanie tego %{model}"
+        other:          "%{count} błędy uniemozliwiły zapisanie tego %{model}"
