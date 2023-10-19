@@ -1,0 +1,56 @@
+pl:
+
+  layouts:
+    application:
+      home:         "Główna"
+      questions:    "Pytania"
+      news:         "Nowości"
+      contact:      "Kontakt"
+      orders:       "Zamówienia"
+      products:     "Produkty"
+      users:        "Uytkownicy"
+      logout:       "Wyloguj"
+  
+  store:
+    index:
+      title_html:   "Twój Pragmatyczny Katalog"
+    product:
+      add_html:     "Dodaj do koszyka"
+
+  carts:
+    cart:
+      title:         "Twój Koszyk"
+      empty:         "Wyczyść"
+      checkout:      "Podsumowanie"
+
+  number:
+    currency:
+      format:
+        unit:        "$"
+        precision:   2
+        separator:   "."
+        delimiter:   ","
+        format:      "%u%n"
+  
+  orders:   
+    new:    
+      legend:           "Prosze Podaj Swoje Dane"
+    form:   
+      name:             "imię"
+      address_html:     "Adres"
+      email:            "E-mail"
+      pay_type:         "Zapłać"
+      pay_prompt_html:  "Metoda płatności"
+      submit:           "Zamów"
+      pay_types:
+        "Check":            "Czek"
+        "Credit card":      "Karta Kredytowa"
+        "Purchase order":   "Numer Zamówienia"
+    check:
+      routing_number:   "Numer Kierunkowy"
+      account_number:   "Numer Konta"
+    cc:
+      cc_number:        "Numer Karty"
+      expiration_date:  "Data Waności"
+    po:
+      po_number:        "Numer Zamówienia"
