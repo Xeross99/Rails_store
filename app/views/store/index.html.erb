@@ -1,7 +1,8 @@
 <div class="w-full">
-  <%= render 'notice' %>
+  <%= render 'notice' %><%= render 'alert' %>
 
-  <h1 class="font-bold text-xl pb-2">Your Pragmatic Catalog</h1>
+  <h1 class="font-bold text-xl pb-2"><%= t('.title_html') %></h1>
+  
   <% if session[:counter] >=1 %>
     <p class="mb-6 pb-2 border-b-2">You visited this page <%= session[:counter] %> times</p>
   <% end %>
