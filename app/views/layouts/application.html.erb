@@ -19,7 +19,7 @@
         <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.questions'), questions_path %></li>
         <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.news'), news_path %></li>
         <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.contact'), contact_path %></li>
-        <li><a href="/admin" class="hover:text-white hover:underline transition-all duration-200 <%= session[:user_id] ? "hidden" : "block" %>">Log in</a></li>
+        <li class="hover:text-white hover:underline transition-all duration-200 <%= session[:user_id] ? "hidden" : "block" %>"><%= link_to "Log in", login_path %></li>
       </ul>
       
       <div class="flex flex-row items-center">
@@ -47,6 +47,7 @@
               <ul class="text-gray-300 leading-8 min-w-[100px]">
                 <li class="text-bold text-center"><%= User.find(session[:user_id]).name %></li>
                 <li><hr class="my-2"></li>
+                <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to "Admin", admin_path %></li>
                 <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.orders'), orders_path %></li>
                 <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.products'), products_path %></li>
                 <li class="hover:text-white hover:underline transition-all duration-200"><%= link_to t('.users'), users_path %></li>

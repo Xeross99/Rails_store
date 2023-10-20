@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  # START HIGHLIGHT
+  resources :support_requests, only: %i[ index update ]
+  # END HIGHLIGHT
+
   resources :users
   resources :products do
     get :who_bought, on: :member
