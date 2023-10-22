@@ -12,6 +12,7 @@ es:
       products:        "Productos"
       users:           "Usuario"
       logout:          "Cerrar sesión"
+      support_request: "Solicitud de soporte"
 
   store:    
     index:    

@@ -12,6 +12,7 @@ pl:
       products:     "Produkty"
       users:        "Uytkownicy"
       logout:       "Wyloguj"
+      support_request: "Prośba o wsparcie"
   
   store:
     index:
