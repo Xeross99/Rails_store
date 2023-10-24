@@ -41,7 +41,25 @@
         <% else %>
           <h3 class="notice text-center py-2">No associated order ¯\_(ツ)_/¯</h3>
       <% end %>
-      <hr class="my-5">
+      <% if support_request.response.blank? %>
+        <%= form_with(model: support_request, local: true, class: "depot_form") do |form| %>
+          <div class="field">
+            <%= form.label :response, "Write Response" %>
+            <%= form.rich_text_area :response, id: :support_request_response %>
+          </div>
+          <div class="actions">
+            <%= form.submit "Send Response", class: 'cursor-pointer' %>
+          </div>
+        <% end %>
+      <% else %>
+        <h4>Our Response</h4>
+        <p>
+          <blockquote>
+            <%= support_request.response %>
+          </blockquote>
+        </p>
+      <% end %>
+      <hr class="my-10">
     </li> 
   <% end %>
 </ul>

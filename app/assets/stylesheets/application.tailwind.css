@@ -9,4 +9,8 @@
   .notice {
     @apply block shadow rounded-md border-2 bg-amber-50 border-amber-500 outline-none px-3 my-5 mt-2 w-full font-bold;
   }
+  .actions {
+    @apply block shadow rounded-md border-2 bg-green-50 border-green-500 outline-none px-3 my-5 mt-2 w-fit font-bold cursor-pointer text-center transition-all hover:scale-105 active:scale-95;
+  }
 }
+@import 'actiontext.css';
