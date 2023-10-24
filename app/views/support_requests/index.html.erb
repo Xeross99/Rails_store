@@ -1,45 +1,45 @@
-<ul>
+<ul class="w-full">
   <% @support_requests.each do |support_request|  %>
     <li>
-      <h1>
+      <h1 class="text-xl font-semibold">
         On <%= support_request.created_at.to_formatted_s(:long) %>
         <code><%= support_request.email %></code> writes:
       </h1>
       <p>
-        <blockquote>
-          <h2><%= support_request.subject %></h2>
-          <%= support_request.body %>
+        <blockquote class="ml-5 normal-case font-light text-lg my-2">
+          <h2 class="font-medium"><%= support_request.subject.capitalize %></h2>
+          <p class="mt-1"><%= support_request.body.capitalize %></p>
         </blockquote>
       </p>
       <% if support_request.order %>
-        <h3>Recent Order</h3>
-        <dl>
-          <dt>Name</dt>
-          <dd><%= support_request.order.name %></dd>
+        <h3 class="font-semibold">Recent Order:</h3>
+        <div class="notice font-normal py-2">
+          <h4>Name</h4>
+          <p class="ml-5 font-semibold normal-case"><%= support_request.order.name.capitalize %></p>
             
-          <dt>Email</dt>
-          <dd><%= support_request.order.email %></dd>
+          <h4>Email</h4>
+          <p class="ml-5 font-semibold lowercase"><%= support_request.order.email %></p>
 
-          <dt>Address</dt>
-          <dd><%= support_request.order.address %></dd>
+          <h4>Address</h4>
+          <p class="ml-5 font-semibold"><%= support_request.order.address.capitalize %></p>
 
-          <dt>PayType</dt>
-          <dd><%= support_request.order.pay_type %></dd>
+          <h4>PayType</h4>
+          <p class="ml-5 font-semibold"><%= support_request.order.pay_type.capitalize %></p>
 
-          <dt>Line Items</dt>
-          <dd>
+          <h4>Line Items</h4>
+          <p>
               <ul>
                 <% support_request.order.line_items.each do |line_item| %>
-                  <li>
+                  <li class="ml-10 font-semibold list-disc">
                     <%= line_item.product.title %>
-                    (<%= line_item.product.price %>)
+                    ($ <%= line_item.product.price %>)
                   </li>
                 <% end %>
               </ul>
-            </dd>
-          </dl>
+          </p>
+        </div>
         <% else %>
-          <h3 class="text-bold">No associated order</h3>
+          <h3 class="notice text-center py-2">No associated order ¯\_(ツ)_/¯</h3>
       <% end %>
       <hr class="my-5">
     </li> 

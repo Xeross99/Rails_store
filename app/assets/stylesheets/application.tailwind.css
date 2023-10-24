@@ -6,4 +6,7 @@
   .input-field {
     @apply block shadow rounded-md border border-green-400 outline-none px-3 my-2 mt-2 w-full;
   }
+  .notice {
+    @apply block shadow rounded-md border-2 bg-amber-50 border-amber-500 outline-none px-3 my-5 mt-2 w-full font-bold;
+  }
 }
