@@ -11,35 +11,46 @@
           <p class="mt-1"><%= support_request.body.capitalize %></p>
         </blockquote>
       </p>
-      <% if support_request.order %>
-        <h3 class="font-semibold">Recent Order:</h3>
-        <div class="notice font-normal py-2">
-          <h4>Name</h4>
-          <p class="ml-5 font-semibold normal-case"><%= support_request.order.name.capitalize %></p>
-            
-          <h4>Email</h4>
-          <p class="ml-5 font-semibold lowercase"><%= support_request.order.email %></p>
+      <% if support_request.order_id %>
+        <h3 class="font-semibold">All orders:</h3>
+        <div class="notice font-normal py-2 flex flex-row gap-20 overflow-scroll">
+          <% if support_request.order.support_requests.any? %>
+            <% support_request.order.support_requests.each do |support_request| %>
+            <div class="flex flex-col">
+              <h4>Name</h4>
+              <p class="ml-5 font-semibold normal-case"><%= support_request.order.name.capitalize %></p>
 
-          <h4>Address</h4>
-          <p class="ml-5 font-semibold"><%= support_request.order.address.capitalize %></p>
+              <h4>Email</h4>
+              <p class="ml-5 font-semibold lowercase"><%= support_request.order.email %></p>
 
-          <h4>PayType</h4>
-          <p class="ml-5 font-semibold"><%= support_request.order.pay_type.capitalize %></p>
+              <h4>Address</h4>
+              <p class="ml-5 font-semibold"><%= support_request.order.address.capitalize %></p>
 
-          <h4>Line Items</h4>
-          <p>
-              <ul>
-                <% support_request.order.line_items.each do |line_item| %>
-                  <li class="ml-10 font-semibold list-disc">
-                    <%= line_item.product.title %>
-                    ($ <%= line_item.product.price %>)
-                  </li>
-                <% end %>
-              </ul>
-          </p>
+              <h4>PayType</h4>
+              <p class="ml-5 font-semibold"><%= support_request.order.pay_type.capitalize %></p>
+
+              <h4>Line Items</h4>
+              <p>
+                <ul>
+                  <% support_request.order.line_items.each do |line_item| %>
+                    <li class="ml-10 font-semibold list-disc">
+                      <%= line_item.product.title %>
+                      ($ <%= line_item.product.price %>)
+                    </li>
+                  <% end %>
+                </ul>
+              </p>
+
+              <h4>Date of placing the order</h4>
+              <p class="ml-5 font-semibold"><%= support_request.order.created_at.to_formatted_s(:long) %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <h4>No associated orders found ¯\_(ツ)_/¯</h4>
+          <% end %>
         </div>
-        <% else %>
-          <h3 class="notice text-center py-2">No associated order ¯\_(ツ)_/¯</h3>
+      <% else %>
+        <h3 class="notice text-center py-2">No associated order ¯\_(ツ)_/¯</h3>
       <% end %>
       <% if support_request.response.blank? %>
         <%= form_with(model: support_request, local: true, class: "depot_form") do |form| %>
@@ -60,6 +71,6 @@
         </p>
       <% end %>
       <hr class="my-10">
-    </li> 
+    </li>
   <% end %>
 </ul>

@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :line_items, dependent: :destroy
+  has_many :support_requests, dependent: :destroy
   require 'pago'
 
   enum pay_type: {
