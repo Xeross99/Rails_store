@@ -1,12 +1,16 @@
-<div id="<%= dom_id user %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= user.name %>
-  </p>
+<div id="<%= dom_id user %>" class="border-2 m-5 border-green-950 rounded-xl p-2 relative bg-green-800">
+  <div class="absolute bg-green-800 border-2 p-5 rounded-full border-green-950 top-8 left-8 -translate-x-1/2 -translate-y-1/2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-12 h-12">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+</svg>
+</div>
+
+  <div class="my-5 mt-8 text-center ">
+    <p class="block mb-1 text-sm font-light text-gray-300">Name:</p>
+    <h2 class=" text-xl font-semibold text-white"><%= user.name %></h2>
+  </div>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this user", user, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this user', edit_user_path(user), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <%= link_to "Show this user", user, class: "rounded-lg py-3 text-green-950 bg-white px-5 bg-white-100 inline-block font-medium" %>
+    <%= link_to 'Edit this user', edit_user_path(user), class: "rounded-lg py-3 text-green-950 bg-white ml-2 px-5 bg-white-100 inline-block font-medium" %>
   <% end %>
 </div>
