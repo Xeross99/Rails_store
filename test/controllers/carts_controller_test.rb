@@ -6,7 +6,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get carts_url
+    get store_index_url
     assert_response :success
   end
 
