@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :carts
     root 'store#index', as: 'store_index', via: :all
   end
+  
+  match '*unmatched', to: 'application#route_not_found', via: :all
 end
 
 
