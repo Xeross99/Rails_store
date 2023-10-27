@@ -9,6 +9,17 @@
   </div>
 
   <div id="orders" class="min-w-full">
-    <%= render @orders %>
+    <% @orders.each do |order| %>
+      <div class="my-2 p-2 <%= cycle('bg-green-50', 'bg-white') %>">
+        <table>
+          <tr>
+            <td class="font-bold py-2 px-5 text-center">Id</td>	<td class="font-bold py-2 px-5 text-center">Name</td>	<td class="font-bold py-2 px-5 text-center">Address</td>	<td class="font-bold py-2 px-5 text-center">Pay type</td>	<td class="font-bold py-2 px-5 text-center">E-mail</td>	<td class="font-bold py-2 px-5 text-center">Created at:</td>
+          </tr>
+          <tr>
+            <td><%= order.id %></td><td><%= order.name %></td><td><%= order.address %></td><td><%= order.pay_type %></td><td><%= order.email %></td><td><%= order.created_at.to_formatted_s(:long) %></td>          
+          </tr>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>
