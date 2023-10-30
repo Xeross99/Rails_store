@@ -3,23 +3,28 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Orders</h1>
-    <%= link_to 'New order', new_order_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  <div class="flex justify-between items-center pb-8">
+    <h1 class="mx-auto font-bold text-4xl">Orders</h1>
   </div>
 
-  <div id="orders" class="min-w-full">
-    <% @orders.each do |order| %>
-      <div class="my-2 p-2 <%= cycle('bg-green-50', 'bg-white') %>">
-        <table>
-          <tr>
-            <td class="font-bold py-2 px-5 text-center">Id</td>	<td class="font-bold py-2 px-5 text-center">Name</td>	<td class="font-bold py-2 px-5 text-center">Address</td>	<td class="font-bold py-2 px-5 text-center">Pay type</td>	<td class="font-bold py-2 px-5 text-center">E-mail</td>	<td class="font-bold py-2 px-5 text-center">Created at:</td>
+  <table id="orders" class="mx-auto">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Pay type</th>
+        <th scope="col">Created order</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orders.each do |order| %>
+          <tr class="my-2 p-2 <%= cycle('bg-green-50', 'bg-white') %>  text-lg">
+            <td class="px-3 py-5"><%= order.id %></td><td class="px-3"><%= order.name %></td><td class="px-3"><%= order.address %></td><td class="px-3"><%= order.pay_type %></td><td class="px-3"><%= order.email %></td><td class="px-3"><%= order.created_at.to_formatted_s(:long) %></td>          
           </tr>
-          <tr>
-            <td><%= order.id %></td><td><%= order.name %></td><td><%= order.address %></td><td><%= order.pay_type %></td><td><%= order.email %></td><td><%= order.created_at.to_formatted_s(:long) %></td>          
-          </tr>
-        </table>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 </div>
